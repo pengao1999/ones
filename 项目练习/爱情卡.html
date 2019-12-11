@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>romantic</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .da1{
+            width: 300px;
+            height: 350px;
+            border:1px green solid;
+            margin:50px auto;
+            background-color: white;
+        }
+        .da2{
+            height:35px;
+            background-color:yellowgreen;
+            /*border: 1px red solid;*/
+           padding-left:25px;
+            line-height: 35px;
+
+
+        }
+        .da2 a{
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+        .da3{
+            height: 295px;
+            padding: 10px;
+            border:1px red solid;
+            text-align: center;
+        }
+        .da3 a img{
+            width: 250px;
+            vertical-align: middle;
+        }
+    .p1{
+            font-size: 14px;
+            color: #999;
+        height: 17px;
+        line-height: 17px;
+        /*设置居中的两种方法，第一是把行高设置成标签高度一样，第二是设置verticla-align:middle*/
+        /*设置行高可以设置margin值，也可以直接用line-height*/
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="da1">
+        <div class="da2">
+            <a href="https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%C3%C0%C5%AE%D0%D4%B8%D0&fr=ala&ala=1&alatpl=cover&pos=0&hs=2&xthttps=111111"  target="-blank";>可爱</a>
+            <a href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%C9%A7%C6%F8%C3%C0%C5%AE&fr=ala&ala=2&alatpl=sp&pos=0" target="_blank">漂亮</a>
+            <a href="http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1575534474300_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&sid=&word=%E9%9D%92%E6%98%A5%E7%BE%8E%E5%A5%B3" target="_blank">青春</a>
+        </div>
+        <div class="da3">
+            <div>
+                <a href="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=2315df0f25738bd4c421b53799b0e0eb/3b292df5e0fe99254590c9823fa85edf8cb17140.jpg"><img src="../心动2019.jpg" alt="这张图片让我心动"></a>
+            </div>
+            <!--<p class="da3 p1">西江月</p>
+            写成这样子，会继承da3里的属性，同时又赋予了p1里的属性，如果p1里设置了新的属性，则p1里能覆盖掉da3里的属性
+            -->
+            <p class="p1">西江月</p>
+            <p class="p1">世事一场大梦</p>
+            <p class="p1">人生几度秋凉</p>
+
+        </div>
+    </div>
+</body>
+</html>
