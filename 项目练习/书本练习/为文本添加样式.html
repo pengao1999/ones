@@ -13,12 +13,28 @@
          div p{
              font-family: Arial, Helvetica, sans-serif;
              font-weight:bold;
-             font-size: 35px;        
+             font-size: 35px;     
+             text-indent: -3em;   
+             text-align: center;
          }
          span{
-            word-spacing:6px;
-            letter-spacing: ;
+             display: block;
+            word-spacing:6px;/* 单词和单词之间的距离 */
+            letter-spacing: 5px;/* 字母和字母之间的距离 */
+            text-indent: 2em;
+            text-align: justify;
          }
+        .p1{
+        
+            /* text-transform:uppercase;全部大写 */
+            /* text-transform:capitalize;首字母大写 */
+            /* text-transform:lowercase; 全部小写*/
+            font-variant: small-caps;/* 大写小型字母 */
+            /* text-decoration: underline; 下滑线*/
+            /* text-decoration:overline; 上滑线*/
+            /* text-decoration: line-through; 删除线*/
+            white-space:pre;/* nowrap让所有文本显示在一行里,normal正常显示 */
+        }
     </style>
 </head>
 
@@ -31,7 +47,11 @@
             这里的
         </span>
         <p>山路十八弯</p>
-
+        <p class="p1">
+            what's you name? my name is liudehua 
+            what's the weather today 
+            it's fine
+        </p>
     </div>
 
     <script>
