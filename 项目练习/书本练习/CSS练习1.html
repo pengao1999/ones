@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+            body{
+                background-color:rgb(11, 8, 53) !important;/*最强优先级*/
+            }
+            .div1:first-letter{
+        color:red;
+    }
+        a:link{
+         color: yellow;/* 还没有按的时候的颜色 */   
+        }
+        a:visited{
+        color:blue;/* 已经点击过的颜色 */
+        }
+        a:hover{
+            color: blueviolet;/* 鼠标移动在上面的时候的颜色 */
+        }
+        a:focus{
+            color: red;/* 鼠标松开的一瞬间的时候的颜色 */
+        }
+        a:active{
+            color: black;/* 鼠标按住的时候的颜色 */
+        }
+        p[class]{
+        color: burlywood;
+        }
+        p:first-child{
+            color: purple;
+        }
+    </style>
+    <link rel="stylesheet" href="颜色.css">
+    <!--
+     <link rel="stylesheet" href="颜色.css" media="screen">表示这个样式表只在屏幕上显示
+      <link rel="stylesheet" href="颜色.css" media="print">表示这个样式表只要打印机上显示
+      或者使用  
+      @media print{ }
+
+    -->
+
+</head>
+<body>
+<div class="div1">
+    好好学习天天向上
+    <div>
+        <p class="c1">如果</p>
+        <p class="c2">小可爱</p>
+        <p class="c1 c3">因为爱</p>
+        <p class="c1c2">知之为知之</p>
+        <p class="c1c2c3 c4">不知为不知</p>
+        <a href="https://www.sina.com.cn/">人来人往a</a>
+        <p class="c1-c2c3c4c5">是智也</p>
+        <p>论语</p>
+    </div>  
+</div>
+</body>
+</html>

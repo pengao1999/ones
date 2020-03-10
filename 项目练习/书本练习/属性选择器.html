@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src=""></script>
+    <style>
+        /* 包含C1,以空格分隔开的多个类名 */
+        p[class~="c1"]{
+            color: red;
+        }
+        /* 以c1开头的类名 */
+        p[class^="c1"]{
+            color: yellow;
+        }
+        /* 以c1-开头的类名 */
+        p[class|="c1"]{
+            color: blue;
+        }
+        /* 以c2结尾的类名 */
+        p[class$="c2"]{
+            color: green;
+        }
+        /* 只要包含c3就可以 */
+        p[class*="c3"]{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<!-- 
+        选择器1:名称选择器
+        选择器2:类和id选择器
+        选择器3:
+        (1)空格选择后代元素,不论是什么后代元素
+        (2)>选择子代元素
+        (3)+选择相邻同胞元素用
+        (4)~只要是同胞元素就可以选择
+        伪元素选择器:
+        (1)li:first-child{}  父元素中的第一个li
+        (2)li:last-child{}  父元素中的最后一个li
+        (3)li:first-letter{} 元素的第一个字母
+        (4)li:first-line{}  元素里的第一行
+ -->
+<body>
+    <div>
+        <div>
+            <p class="c1">如果</p>
+            <p class="c2">小可爱</p>
+            <p class="c1 c3">因为爱</p>
+            <p class="c1c2">知之为知之</p>
+            <p class="c1-c4">不知为不知</p>
+            <a href="https://www.sina.com.cn/">人来人往a</a>
+            <p class="c1-c2c3c4c5">是智也</p>
+            <p>论语</p>
+        </div>  
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
