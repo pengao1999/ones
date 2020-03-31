@@ -1,0 +1,396 @@
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:"微软雅黑","\9ED1\4F53","SimSun",Arial, Helvetica, sans-serif;
+        }
+        a:hover{
+            color: orange;   
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color:rgb(12, 10, 10);
+            min-width: 1400px;
+        }
+        /* .p-whole>div{
+            width: 1200px;
+            margin: 0 auto;
+        } */
+        a{
+            text-decoration: none;
+        }
+        /*最上部登录按钮 */
+        .p-head{
+            width: 1200px;
+            height: 50px;
+            border-bottom:1px solid gray;
+            margin: 0 auto;
+        }
+        /* 左边欢迎的文字 */
+        .head-welcome{
+            line-height: 50px;
+            margin-left: 50px;
+            float: left;
+        }
+        /* 右边的用户交互的按钮盒子 */
+        .head-user{                 /* 在一个大盒子里面,把这些小图片,小文字左右浮动,让他们横排显示,但又不至于超出外面的大盒子 */
+            line-height: 50px;
+            float: right;
+            margin-right:50px;
+        }
+        /* |标志的样式 */
+        .head-user span{
+            margin:0 10px;
+        }
+
+        /* 搜索框 */
+        .p-search{
+            width: 1200px;
+            height:100px;
+            margin:0 auto;
+        }
+        .search-logo{           /* 装图片的盒子不设置宽高,让图片撑满盒子,盒子高度由内容撑开 */
+            line-height: 100px;
+           /*  border: 1px red dashed;   在做的时候可以设置边框线来让自己判断准确*/
+            margin-left:15px;   /* 很多时候都用margin值 调整宽高 */
+            float: left;
+        }
+        .search-logo img{
+            vertical-align: middle;/* 让图片在盒子里面居中 */
+        }
+
+        /* 装按钮的盒子 */
+        .search-case{           
+            width: 640px;
+            height:43px;
+            border: 1px rgb(15, 163, 77) solid;
+            float: left;
+            margin: 30px 0 0 80px;
+        }
+        .search-case span img{          /* 给图片设置合适的宽高,并且设置margin,让它在盒子中达到自己想要的样子 ,这里适合一切*/
+            width: 30px;
+            height: 30px;
+            margin: 7px 0 0 5px;
+        }
+        .search-case span{
+            float: left;
+        }
+        .search-case input{
+            outline:none;
+            border: 0;
+            height: 43px;
+            line-height:43px;           /* 把height和line-height设置成一样的,让他们居中显示 ,这个只适合块级元素*/
+            padding: 0;
+            font-family:'Microsoft Yahei'
+        }
+       .input-text{
+           width: 520px;
+           font-size: 16px;
+           float: left;
+       }
+       .input-button{
+            width: 85px;
+            font-size: 18px;
+            float: right;
+            background-color: #37ab40;
+       }
+
+
+       /* 购物车 */
+       .search-cart{                /* 购物车大盒子 */
+            width: 260px;
+            height: 43px;
+            border: #aaaaaa 1px solid;
+            margin: 30px 0px 0 0px;
+            float:right ;
+       }
+       .cart-img img{
+            width: 32px;
+            height: 28px;
+            vertical-align: middle;            /* text-bottom对齐父元素文字的底部,text-top对齐父元素的顶部,middle可以用对齐父元素的中部 */
+            /* vertical用于图片,line-height用于文本 */
+            margin: 0 10px 0 0 ;
+       }
+       .cart-img{                                           /* a标签怎么设置宽高和调整位置? */
+           /*  border: 1px solid red; */
+            font-size: 20px;                                /* a标签,span标签不能改变宽度和高度,里面的文字或者图片就是它的宽度和高度,如果要设置宽高,就要在外面加一个块级元素 */
+                                                            /* 所有布局的思想就是用块级控制需要设置位置,而里面是行内就是内容,span可以用来控制字体大小,颜色等 */
+            width: 160px;
+            height: 43px;
+            line-height: 43px;
+            float: left;
+            margin: 0;
+       }
+        .cart-car{
+            font-size: 20px;
+            width: 95px;
+            height: 43px;
+            line-height: 43px;                                     /* 让里面的文字居中 */
+            color: white;
+            background-color:orange;
+            float: right;
+            text-align: center;
+        }
+
+        /* 全部商品区分 */
+        .p-nav{
+            width: 1200px;
+            height: 45px;
+            margin: 0 auto;
+        }
+        .class-goods{
+            width: 200px;
+            height: 45px;
+            line-height: 45px;
+            background-color: #37ab40;
+            text-align: center;
+            float: left;
+        }
+        .class-function{
+            width: 200px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            float: left;
+        }
+        .class-function span{
+            margin:0 10px;
+        }
+        hr{
+            border:#37ab40 1.5px solid;
+        }
+
+        /* 分类子集 */
+        .p-assort{
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .assort-left{
+            width: 200px;
+            height: 275px;
+            float: left;
+        }
+        .assort-left>ul{
+            list-style: none;
+        }
+        .assort-left li{
+            width: 200px;
+            height: 45px;
+            border-bottom: 1px #cccccc solid;
+            text-align: center; /* 能控制后代元素的文字 */
+            margin-bottom:5px ;  
+        }
+        .assort-left li:nth-child(1){
+            background:url(./img/sprite.png) no-repeat 31px -92px;
+        }
+        .assort-left li:nth-child(2){
+            background:url(./img/sprite.png) no-repeat 29px -140px;
+        }
+        .assort-left li:nth-child(3){
+            background:url(./img/sprite.png) no-repeat 29px -194px;
+        }
+        .assort-left li:nth-child(4){
+            background:url(./img/sprite.png) no-repeat 29px -242px;
+        }
+        .assort-left li:nth-child(5){
+            background:url(./img/sprite.png) no-repeat 29px -292px;
+        }
+        .assort-left li:nth-child(6){
+            background:url(./img/sprite.png) no-repeat 29px -344px;
+        }
+        .assort-left li a{
+            display: inline-block;          /* 为了a标签充满整个li标签,就把a标签设置成inline-block,这样才可以设置与父级标签一样的宽高 */
+            width: 200px;
+            height: 45px;
+            line-height: 40px;
+        }
+        .assort-left li a span{
+            float: right;
+            margin-right:10px ;
+        }
+
+        /* 轮播图 */
+        .assort-center{
+            width: 763px;
+            height: 300px;
+           /*  border: aqua 1px solid; */
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+        .assort-center .ul1{
+            width: 763px;
+            height: 300px;
+            position: relative;
+            left: 0;
+            top: 0;
+            list-style: none;
+        }
+        .assort-center .ul1 li{
+            width: 763px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+       /*  .assort-center .ul1 img{
+            width: 763px;
+            height: 300px;
+        } */
+
+        /* 轮播图的按钮 */
+        .next-left{
+            width: 17px;
+            height: 23px;
+            background: url("img/leftarrow.png") no-repeat;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .next-right{
+            width: 17px;
+            height: 23px;
+            background: url("img/rightarrow.png") no-repeat;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        /* 轮番图的小圆圈 */
+        .center-ul2{
+            width: 800px;
+            height: 11px;
+            position: absolute;
+            left: 0;
+            top: 275px;
+            /* z-index: 1000; */
+            text-align: center;
+        }
+        .center-ul2 li{
+            width: 11px;
+            height: 11px;
+            background-color: rgb(240, 229, 229);
+            border: rgb(12, 12, 12) 1px solid;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .center-ul2 li:hover{
+            background-color: rgb(31, 88, 55);
+            border: rgb(129, 4, 4) 1px solid;
+        }
+        .assort-right{
+            /* width:calc(1200 - (763 + 200)px);               在运算符周围一定要用空格隔开 */
+            width: 235px;
+            height: 300px;
+           /*  border: solid 1px red; */
+            float:right;
+        }
+        .assort-right a{
+            display: block;
+            margin-top:10px ;
+        }
+
+        /* 列表的头部 */
+        .p-shopList{
+            margin: 50px;
+            width: 1200px;
+            height: 35px;
+            border-bottom: #37ab40 1px solid;
+            margin: 0px auto;
+            margin-top:40px ;
+        }
+        .shopList-head h3{
+            width: 200px;
+            height: 30px;
+            color:#37ab40;
+            float: left;
+        }
+        .shopList-head>ul{
+            width: 990px;
+            height: 30px;
+           /*  border-left:#aaaaaa 1px solid; */
+            list-style: none;
+          /*   height: 60px; */
+            float: left;
+        }
+        .shopList-head>ul li{
+            margin-top: 7px;
+            display: inline-block;
+        }
+        .shopList-head>ul li:last-child{
+            float: right;
+        }
+        .shopList-head>ul span{
+            margin: 0 10px;
+            color: #37ab40;
+        }
+        
+        /* 列表的图片 */
+        .shopList-listBody{
+            width: 1200px;
+            height: 305px;
+            margin: 0 auto;
+            /* border: 1px greenyellow solid; */
+        }
+        .listBody-title{
+            float: left;
+        }
+        .listBody-fruit{
+            float: left;
+        }
+        .listBody-fruit ul{
+            width: 995px;
+            height:305px ;
+            /* border: 1px red solid; */
+            list-style: none;
+        }
+        .listBody-fruit li{
+            text-align: center;
+            margin-left:3px ;
+            width: 244px;
+            height: 300px;
+            float: left;
+        }
+
+
+        /* 每个列表图片里面的价格 */
+        .listBody-fruit li h4{
+            margin-top: 50px;
+            font: 14px sans-serif normal;
+            
+        }
+        .listBody-fruit li h4 a{
+            color: grey;
+        }
+        .listBody-fruit li h4 a:hover{
+            color: hotpink;
+        }
+        .listBody-fruit li div{
+            color: rgb(50, 116, 72);
+            font: 20px sans-serif;
+        }
+        .listBody-fruit li:hover{
+            border: orange 1px solid;
+        }
+
+        /* 尾部 */
+        .p-foot{
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            margin-top:30px ;
+            text-align: center;
+        }
+        .foot-con a{
+            color: #000000;
+        }
+        .foot-con a:hover{
+            color: hotpink;
+        }
