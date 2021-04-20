@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>仓库管理</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    #app {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+    .b-left {
+        width: 48%;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+    .refresh-spe,
+    .add-spe {
+        width: 133px;
+        height: 33px;
+        border: 3px solid rgba(0, 0, 0, .3);
+        font-size: 18px;
+        color: white;
+        background-color: rgb(153, 186, 88);
+    }
+
+    .li-box {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .b-li {
+        width: 48%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 8px 0;
+    }
+
+    .b-li input {
+        width: 133px;
+        height: 27px;
+        border: 3px solid orange;
+        font-size: 16px;
+        outline: 0;
+    }
+
+    .b-li button {
+        width: 80px;
+        height: 33px;
+        border: 3px solid rgba(0, 0, 0, .3);
+        font-size: 16px;
+        color: white;
+        background-color: rgb(153, 186, 88);
+    }
+    .b-li button:nth-of-type(1){
+        margin: 0 2px;
+    }
+    .li-box-two {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .b-li-two {
+        width: 100%;
+        border: 1px solid rgb(255, 104, 49);
+        border-radius: 5px;
+        padding: 10px 50px 10px 10px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+
+    .b-li-two>p {
+        font-size: 18px;
+        border-bottom: 1px gray solid;
+    }
+
+    .b-li-two>button {
+        width: 100px;
+        height: 33px;
+        border: 1px solid rgb(29, 29, 177);
+        font-size: 16px;
+        color: white;
+        background-color: rgb(153, 186, 88);
+        margin-top: 10px;
+        border-radius: 2px;
+    }
+
+    .color-li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 65%;
+        margin-top: 8px;
+    }
+
+    .color-li span {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .color-li input {
+        width: 150px;
+        font-size: 16px;
+        text-indent: 1px;
+    }
+
+    .color-li button {
+        width: 70px;
+        height: 24px;
+        font-size: 16px;
+        color: white;
+        background-color: rgb(153, 186, 88);
+    }
+
+    .b-right {
+        width: 48%;
+    }
+
+    .b-table {
+        width: 100%;
+        padding: 20px 50px 20px 20px;
+        box-sizing: border-box;
+        border: 2px solid rgb(255, 104, 49);
+        border-radius: 5px;
+    }
+
+    .b-table tr {
+        width: 100%;
+        font-size: 16px;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .b-table tr th,
+    .b-table tr td {
+        width: 33.33%;
+        text-align-last: left;
+        border: 0;
+    }
+
+    .b-tr input {
+        outline: 0;
+        font-size: 16px;
+    }
+
+    .alert {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .a-box {
+        width: 300px;
+        height: 150px;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 0 2px 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .a-box p {
+        font-size: 16px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button button {
+        width: 49%;
+        height: 50px;
+        border-radius: 3px;
+        font-size: 18px;
+        color: white;
+    }
+
+    .button button:first-child {
+        background-color: rgb(202, 202, 202);
+    }
+
+    .button button:last-child {
+        background-color: rgb(153, 186, 88);
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="alert" v-show='alertShow'>
+            <div class="a-box">
+                <p>确定要删除吗</p>
+                <div class="button">
+                    <button @click='conceal(1)'>取消</button>
+                    <button @click='conceal(2)'>确认</button>
+                </div>
+            </div>
+        </div>
+        <div class="b-left">
+            <button class="add-spe" @click='addSpe'>添加规格</button>
+            <ul class="li-box" ref='liBox'>
+                <li class="b-li" v-for='(item,idx) in objOne' :key='item.id'>
+                    <input type="text">
+                    <button @click="save(idx)">保存</button>
+                    <button @click='delSpe(idx)'>删除</button>
+                </li>
+            </ul>
+            <ul class="li-box-two">
+                <li class="b-li-two" v-for='(item,idx) in addSave' :key='idx' ref='boxLi'>
+                    <p>[{{valueArr[idx]}}] 规格项</p>
+
+                    <button @click='addSpeTwo(idx)'>添加规格项</button>
+                    <ul class="color-box">
+                        <li class="color-li" v-for='(item,index) in objSpe[idx]' :key='index'>
+                            <span>{{valueArr[idx]}}项{{index}}</span>
+                            <input type="text">
+                            <button class="delete" @click='delSpeTwo(idx,index)'>移除</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="b-right">
+            <button class="refresh-spe" @click='refresh'>刷新规格</button>
+            <table border="1" cellspacing='0' class="b-table">
+                <tr>
+                    <th>规格项</th>
+                    <th>库存</th>
+                    <th>价格</th>
+                </tr>
+                <tr v-for='(item,idx) in speArr' :key='idx'>
+                    <td>{{item}}</td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                alertShow: false,
+                deleteIdx: '',
+                objOne: [],
+                objSpe: [],
+                addSave: [],
+                valueArr: [],
+                refreshObj: [],
+                speArr: [],
+            },
+            methods: {
+                // 添加规格
+                addSpe() {
+                    this.objOne.push({id: this.objOne.length});
+                },
+                // 删除
+                delSpe(idx) {
+                    this.alertShow = true;
+                    this.deleteIdx = idx;
+                },
+                // 取消/确认
+                conceal(num) {
+                    this.alertShow = false;
+
+                    // 判断点击的是取消还是确认
+                    if(num == 1) return;
+                    this.objOne.splice(this.deleteIdx, 1);
+                   
+                    // 获取到规格名
+                    let value = this.$refs.liBox.children[this.deleteIdx].firstChild.value;
+
+                    if (this.valueArr.indexOf(value) != -1) {
+                        this.valueArr.splice(this.valueArr.indexOf(value), 1);
+                        this.addSave.splice(this.valueArr.indexOf(value), 1);
+                    }
+                    this.$nextTick(() => {
+                        this.refresh();
+                    });
+                },
+                // 添加规格项
+                addSpeTwo(idx) {
+                    this.objSpe[idx].push(1);
+                },
+                // 移除
+                delSpeTwo(idx, index) {
+                    this.objSpe[idx].splice(index, 1);
+                    this.$nextTick(() => {
+                        this.refresh();
+                    });
+                },
+                // 保存
+                save(idx) {
+
+                    // 获取到规格名
+                    let value = this.$refs.liBox.children[idx].firstChild.value;
+
+                    // 禁止重复添加
+                    if (this.valueArr.indexOf(value) < 0) {
+                        this.objSpe.push([]);
+                        this.valueArr.push(value);
+                        this.addSave.push(value);
+                    }
+                },
+                // 刷新规格
+                refresh() {
+                    // 移除时刷新数组至空,重新push元素
+                    this.speArr = [];
+
+                    let i = 0,
+                        lengthArr = [],
+                        itemArr = [],
+                        itemArr1 = [],
+                        itemArr2 = [],
+                        itemArr3 = [];
+
+                    if (!this.$refs.boxLi) return;
+                    // 取到每个规格项里面input的value值
+                    this.$refs.boxLi.forEach(item => {
+                        let input = item.querySelectorAll('input');
+
+                        lengthArr.push(input.length);
+                        input.forEach(item => {
+
+                            itemArr.push(item.value);
+                        });
+                    });
+
+                    // 截取元素至三个数组里面去
+                    console.log(!NaN);
+                    itemArr1 = itemArr.slice(0, lengthArr[i]);
+                    itemArr2 = itemArr.slice(lengthArr[i], lengthArr[i + 1] + lengthArr[i]);
+                    itemArr3 = itemArr.slice(lengthArr[i] + lengthArr[i + 1], lengthArr[i] + lengthArr[i + 1]+ lengthArr[i + 2]);
+
+                    // 渲染至右边的规格项里面
+                    itemArr1.forEach(a => {
+                        if(itemArr3.length == 0 && itemArr2.length == 0){
+                            let str = a;
+                            this.speArr.push(str);
+                            return false;
+                        }
+                        itemArr2.forEach(b => {
+                            if (itemArr3.length == 0) {
+                                let str = a + '_' + b;
+                                this.speArr.push(str);
+                            } else {
+                                itemArr3.forEach(c => {
+                                    let str = a + '_' + b + '_' + c;
+                                    this.speArr.push(str);
+                                });
+                            }
+                        });
+                    });
+                },
+            },
+            watch: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>
